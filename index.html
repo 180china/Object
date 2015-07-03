@@ -5,20 +5,20 @@
     <meta name="viewport" id="viewport" content="width=device-width, user-scalable=no, minimum-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Object</title>
+    <title>Object3.1</title>
     <link type="text/css" rel="stylesheet" href="style.css" />
 	
 </head>
 <body>
+    <div id="loading"></div>
+
+    <audio loop="loop" id="bgSound" autoplay="true">
+        <source src="sound/bg.mp3" type="audio/mpeg">
+        <source src="sound/bg.ogg" type="audio/ogg">
+    </audio>
+
     <div id="landscape" style="display:none"></div>
-    <script src="libs/jquery-1.8.0.min.js"></script>
-    <script src="libs/stats.min.js"></script>
-    <script src="libs/pixi.js"></script>
-    <script src="libs/spp.min.js"></script>
-    <script src="libs/TimelineLite.min.js"></script>
-    <script src="libs/TweenMax.min.js"></script>
-    <script src="libs/EasePack.min.js"></script>
-    <script src="libs/soundjs-0.6.1.min.js"></script>
+    <script src="libs.js"></script>
 
     <script src="src/Game.js"></script>
     <script src="src/Utils.js"></script>
@@ -26,9 +26,7 @@
     <script src="src/scene/Scene.js"></script>
     <script src="src/scene/GameScene1.js"></script>
     <script src="src/scene/GameScene2.js"></script>
-    <script src="src/scene/LoadingScene.js"></script>
-
-    <script src="src/sound.js"></script>
+    <script src="src/scene/GameScene3.js"></script>
 
     <script src="src/AssetsManager.js"></script>
     <script src="src/main.js"></script>

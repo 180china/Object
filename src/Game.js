@@ -14,15 +14,3 @@ GAME.retinaSupport=true;
 
 GAME.Sound=null;
 GAME.imageScale=1;
-
-GAME.SoundConfig =
-[
-    {
-		id : "bg",
-		src : "sound/bg.ogg"
-	}, 
-	{
-		id : "horse",
-		src : "sound/horse.ogg"
-	}
-]

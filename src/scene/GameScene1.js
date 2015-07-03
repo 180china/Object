@@ -22,7 +22,6 @@ GAME.GameScene1 = function ()
         GAME.Scene.prototype.sceneIn.apply(this);
 
         initStage1();
-        GAME.Sound.play("bg", true);
 
         _isSceneIn = true;
     }
@@ -53,7 +52,17 @@ GAME.GameScene1 = function ()
         TweenMax.to(_txt1, 0.1, { rotation: 0.1,ease:Linear.easeNone,repeat:-1,yoyo:true,delay:2});
 
 
-        _pic1 = new PIXI.Sprite(PIXI.Texture.fromImage("pic1.jpg"));
+
+        var _mask = new PIXI.Graphics();
+        _mask.lineStyle(0);
+        _mask.beginFill(0x000, 1);
+        _mask.drawCircle(0, 0, 50);
+        _stage1Container.addChild(_mask);
+        _mask.position.y = -460*GAME.imageScale;
+        _txt1.mask = _mask;
+
+
+        _pic1 = PIXI.Sprite.fromFrame("pic1.jpg");
         _pic1.scale.y = _pic1.scale.x=GAME.imageScale;
         _pic1.anchor.x = 0.5;
         _pic1.anchor.y = 1;
@@ -63,7 +72,7 @@ GAME.GameScene1 = function ()
         TweenMax.to(_pic1.position, 1, { y: -350*GAME.imageScale,ease:Elastic.easeOut,delay:1});
 
 
-        _pic2 = new PIXI.Sprite(PIXI.Texture.fromImage("pic2.jpg"));
+        _pic2 = PIXI.Sprite.fromFrame("pic2.jpg");
         _pic2.scale.y = _pic2.scale.x=GAME.imageScale;
         _pic2.anchor.x = 0.5;
         _pic2.anchor.y = 1;
@@ -73,7 +82,7 @@ GAME.GameScene1 = function ()
         TweenMax.to(_pic2.position, 1, { y: -210*GAME.imageScale,ease:Elastic.easeOut,delay:1.2});
 
 
-        _btn1 = new PIXI.Sprite(PIXI.Texture.fromImage("btn1.png"));
+        _btn1 = PIXI.Sprite.fromFrame("btn1.png");
         _btn1.scale.y = _btn1.scale.x=GAME.imageScale;
         _btn1.anchor.x = 0.5;
         _btn1.anchor.y = 1;
@@ -117,31 +126,11 @@ GAME.GameScene1 = function ()
 
     function initStage2()
     {
-        
-        GAME.Sound.stop("bg");
-        TweenMax.to(GAME.Sound, 3, {
-        onComplete : function() {
-            GAME.Sound.play("horse");
-        }
-        });
-        TweenMax.to(GAME.Sound, 6, {
-        onComplete : function() {
-            GAME.Sound.stop("horse");
-        }
-        });
-        TweenMax.to(GAME.Sound, 9, {
-        onComplete : function() {
-           GAME.Sound.play("bg",true);
-        }
-        });
-
-
-
         _stage2Container = new PIXI.Container();
         _this.addChild(_stage2Container);
 
 
-        _pic4 = new PIXI.Sprite(PIXI.Texture.fromImage("pic4.jpg"));
+        _pic4 = PIXI.Sprite.fromFrame("pic4.jpg");
         _pic4.scale.y = _pic4.scale.x=GAME.imageScale;
         _pic4.position.x=14*GAME.imageScale;
         _pic4.position.y=100*GAME.imageScale;
@@ -150,7 +139,7 @@ GAME.GameScene1 = function ()
         TweenMax.to(_pic4, 0.6, {alpha: 1});
 
 
-        _pic5 = new PIXI.Sprite(PIXI.Texture.fromImage("pic5.png"));
+        _pic5 = PIXI.Sprite.fromFrame("pic5.png");
         _pic5.scale.y = _pic5.scale.x=GAME.imageScale;
         _pic5.anchor.x = 0.5;
         _pic5.anchor.y = 0.5;
@@ -160,7 +149,7 @@ GAME.GameScene1 = function ()
         _pic5.scale.x=_pic5.scale.y=0;
         TweenMax.to(_pic5.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:0.8});
 
-        _btn2 = new PIXI.Sprite(PIXI.Texture.fromImage("btn2.jpg"));
+        _btn2 = PIXI.Sprite.fromFrame("btn2.jpg");
         _btn2.scale.y = _btn2.scale.x=GAME.imageScale;
         _btn2.anchor.x = 0.5;
         _btn2.anchor.y = 0.5;

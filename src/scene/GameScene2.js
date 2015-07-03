@@ -20,6 +20,8 @@ GAME.GameScene2 = function ()
 
         initStage1();
 
+        document.getElementById("bgSound").pause();
+
         _isSceneIn = true;
     }
     this.update = function ()
@@ -35,9 +37,7 @@ GAME.GameScene2 = function ()
         _stage1Container.position.y = GAME.stageHeight/2;
         _this.addChild(_stage1Container);
 
-
-
-        _pic6 = new PIXI.Sprite(PIXI.Texture.fromImage("pic6.jpg"));
+        _pic6 = PIXI.Sprite.fromFrame("pic6.jpg");
         _pic6.scale.y = _pic6.scale.x=GAME.imageScale;
         _pic6.anchor.x = 0.5;
         _stage1Container.addChild(_pic6);
@@ -45,9 +45,7 @@ GAME.GameScene2 = function ()
         TweenMax.to(_pic6, 1, { alpha: 1,ease:Strong.easeOut,delay:0.6});
         TweenMax.to(_pic6.position, 1, { y: -300*GAME.imageScale,ease:Elastic.easeOut,delay:0.6});
 
-
-
-        _pic7 = new PIXI.Sprite(PIXI.Texture.fromImage("pic7.png"));
+        _pic7 = PIXI.Sprite.fromFrame("pic7.png");
         _pic7.scale.y = _pic7.scale.x=GAME.imageScale;
         _pic7.anchor.x = 0.5;
         _pic7.anchor.y = 0.5;
@@ -60,7 +58,7 @@ GAME.GameScene2 = function ()
 
 
 
-        _pic8 = new PIXI.Sprite(PIXI.Texture.fromImage("pic8.png"));
+        _pic8 = PIXI.Sprite.fromFrame("pic8.png");
         _pic8.anchor.x = 0.5;
         _pic8.anchor.y = 0.5;
         _stage1Container.addChild(_pic8);
@@ -70,7 +68,7 @@ GAME.GameScene2 = function ()
         TweenMax.to(_pic8.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:0.9});
 
 
-        _pic9 = new PIXI.Sprite(PIXI.Texture.fromImage("pic9.png"));
+        _pic9 = PIXI.Sprite.fromFrame("pic9.png");
         _pic9.anchor.x = 0.5;
         _pic9.anchor.y = 0.5;
         _stage1Container.addChild(_pic9);
@@ -79,7 +77,7 @@ GAME.GameScene2 = function ()
         _pic9.scale.x=_pic9.scale.y=0;
         TweenMax.to(_pic9.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1});
 
-        _pic10 = new PIXI.Sprite(PIXI.Texture.fromImage("pic10.png"));
+        _pic10 = PIXI.Sprite.fromFrame("pic10.png");
         _pic10.anchor.x = 0.5;
         _pic10.anchor.y = 0.5;
         _stage1Container.addChild(_pic10);
@@ -89,7 +87,7 @@ GAME.GameScene2 = function ()
         TweenMax.to(_pic10.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1.1});
 
 
-        _pic11 = new PIXI.Sprite(PIXI.Texture.fromImage("pic11.png"));
+        _pic11 = PIXI.Sprite.fromFrame("pic11.png");
         _pic11.anchor.x = 0.5;
         _pic11.anchor.y = 0.5;
         _stage1Container.addChild(_pic11);
