@@ -20,8 +20,6 @@ GAME.GameScene2 = function ()
 
         initStage1();
 
-        document.getElementById("bgSound").pause();
-
         _isSceneIn = true;
     }
     this.update = function ()
@@ -43,7 +41,7 @@ GAME.GameScene2 = function ()
         _stage1Container.addChild(_pic6);
         _pic6.alpha=0;
         TweenMax.to(_pic6, 1, { alpha: 1,ease:Strong.easeOut,delay:0.6});
-        TweenMax.to(_pic6.position, 1, { y: -300*GAME.imageScale,ease:Elastic.easeOut,delay:0.6});
+        TweenMax.to(_pic6.position, 1, { y: -300*GAME.positionScale,ease:Elastic.easeOut,delay:0.6});
 
         _pic7 = PIXI.Sprite.fromFrame("pic7.png");
         _pic7.scale.y = _pic7.scale.x=GAME.imageScale;
@@ -62,8 +60,8 @@ GAME.GameScene2 = function ()
         _pic8.anchor.x = 0.5;
         _pic8.anchor.y = 0.5;
         _stage1Container.addChild(_pic8);
-        _pic8.position.x=-134*GAME.imageScale;
-        _pic8.position.y=-58*GAME.imageScale;
+        _pic8.position.x=-134*GAME.positionScale;
+        _pic8.position.y=-58*GAME.positionScale;
         _pic8.scale.x=_pic8.scale.y=0;
         TweenMax.to(_pic8.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:0.9});
 
@@ -72,8 +70,8 @@ GAME.GameScene2 = function ()
         _pic9.anchor.x = 0.5;
         _pic9.anchor.y = 0.5;
         _stage1Container.addChild(_pic9);
-        _pic9.position.x=-54*GAME.imageScale;
-        _pic9.position.y=-128*GAME.imageScale;
+        _pic9.position.x=-54*GAME.positionScale;
+        _pic9.position.y=-128*GAME.positionScale;
         _pic9.scale.x=_pic9.scale.y=0;
         TweenMax.to(_pic9.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1});
 
@@ -81,8 +79,8 @@ GAME.GameScene2 = function ()
         _pic10.anchor.x = 0.5;
         _pic10.anchor.y = 0.5;
         _stage1Container.addChild(_pic10);
-        _pic10.position.x=61*GAME.imageScale;
-        _pic10.position.y=-128*GAME.imageScale;
+        _pic10.position.x=61*GAME.positionScale;
+        _pic10.position.y=-128*GAME.positionScale;
         _pic10.scale.x=_pic10.scale.y=0;
         TweenMax.to(_pic10.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1.1});
 
@@ -91,8 +89,8 @@ GAME.GameScene2 = function ()
         _pic11.anchor.x = 0.5;
         _pic11.anchor.y = 0.5;
         _stage1Container.addChild(_pic11);
-        _pic11.position.x=134*GAME.imageScale;
-        _pic11.position.y=-58*GAME.imageScale;
+        _pic11.position.x=134*GAME.positionScale;
+        _pic11.position.y=-58*GAME.positionScale;
         _pic11.scale.x=_pic11.scale.y=0;
         TweenMax.to(_pic11.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1.2});
 

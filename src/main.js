@@ -1,25 +1,32 @@
-var view,stage,renderer,loading,gameScene,assetsManager,logo,stats,_background;
-var isStarted=false;
+var view,stage,renderer,gameScene,assetsManager,logo,stats;
 $(document).ready(function()
 {
-    GAME.imageScale=1;
-    if(GAME.Utils.isAndroid())
+
+    var devicePixelRatio = window.devicePixelRatio || 1;
+    var initialScale=Math.floor(1/devicePixelRatio *10)*0.1;
+    //alert(devicePixelRatio);
+    //alert(navigator.userAgent);
+
+    if(!GAME.Utils.isAndroid())
     {
-        $("#viewport")[0].content="width=device-width, user-scalable=no, minimum-scale=1, maximum-scale=1";
-    }else {
-        $("#viewport")[0].content="width=device-width, user-scalable=no, minimum-scale=0.5, maximum-scale=0.5";
+        $("#viewport")[0].content="width=device-width, minimum-scale=0.5, maximum-scale=0.5";
+    }else{
+        console.log("isAndroid");
     }
-    
+
     $(window).resize(resizeCanvas);
     resizeCanvas();
 
-    //initStatsBar();
     init();
+    initStatsBar();
 });
 function resizeCanvas()
 {
-    var winWidth=$(window).get(0).innerWidth;
-    var winHeight=$(window).get(0).innerHeight;
+    var winWidth=$(window).get(0).innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+    var winHeight=$(window).get(0).innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+    GAME.stageWidth=winWidth;
+    GAME.stageHeight=winHeight;
+
     if(winWidth>winHeight)
     {
         $("#landscape").width(winWidth);
@@ -33,8 +40,8 @@ function resizeCanvas()
         $("html,body").scrollLeft(0);
         return;
     }
-    GAME.stageWidth=winWidth;
-    GAME.stageHeight=winHeight;
+
+
 }
 function initStatsBar()
 {
@@ -45,12 +52,14 @@ function initStatsBar()
 };
 function init()
 {
-    renderer = PIXI.autoDetectRenderer(GAME.stageWidth, GAME.stageHeight,{backgroundColor : 0x1099bb});
+    var dpr = window.devicePixelRatio || 1;
+    renderer = PIXI.autoDetectRenderer(GAME.stageWidth, GAME.stageHeight,{
+        backgroundColor : 0x1099bb,
+        resolution : dpr
+    });
     GAME.renderer = renderer;
 
     view=renderer.view;
-    view.width=GAME.stageWidth;
-    view.height=GAME.stageHeight;
     view.style.position="absolute";
     view.style.top = '0px';
     view.style.left = '0px';
@@ -58,35 +67,41 @@ function init()
 
     document.body.appendChild(view);
 
-
     stage = new PIXI.Container();
+    stage.scale.x = 1/dpr;
+    stage.scale.y = 1/dpr;
     GAME.stage = stage;
 
+    //////////////////
+    GAME.imageScale = (Math.floor(GAME.stageWidth/640*100)+1)/100;
+    GAME.positionScale=1*GAME.imageScale;
+    /////////////////
 
     assetsManager=new GAME.AssetsManager();
     assetsManager.onComplete=function()
     {
+        TweenMax.to(document.getElementById("loading"),1,{css:{alpha:0}});
+        TweenMax.delayedCall(1,function()
+        {
+            $("#loading").hide();
+        });
         initScene();
-        $("#loading").hide();
     };
     assetsManager.start();
     animate();
+
+    GAME.Sound=new GameSound();
+    GAME.Sound.addSound("bgSound",true);
 }
 
 
 function initScene()
 {
-    /////////////////////////
-    GAME.imageScale= GAME.stageWidth/640;
-    ///////////////////////
+    var _logo = PIXI.Sprite.fromFrame("logo2.png");
+    _logo.scale.y = _logo.scale.x=GAME.imageScale;
+    stage.addChild(_logo);
 
-    _background = PIXI.Sprite.fromFrame("bg.png");
-    _background.height = GAME.stageHeight;
-    _background.width = GAME.stageWidth;
-    stage.addChild(_background);
-
-    _background.alpha=0;
-    TweenMax.to(_background, 1, { alpha: 1});
+    GAME.Sound.playSound("bgSound");
 
     initScene1();
 }
@@ -133,6 +148,7 @@ function animate()
     GAME.renderer.render(GAME.stage);
     if(stats)stats.update();
     if(gameScene)gameScene.update();
+
 
 };
 

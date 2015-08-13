@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>json</string>
         <key>textureFileName</key>
-        <filename>assets.png</filename>
+        <filename>assets_android.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -127,7 +127,7 @@
             <enum type="AndEngine::MagFilter">MagLinear</enum>
         </struct>
         <key>dataFileName</key>
-        <filename>assets.json</filename>
+        <filename>assets_android.json</filename>
         <key>multiPack</key>
         <false/>
         <key>mainExtension</key>
@@ -148,7 +148,7 @@
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
-            <double>1</double>
+            <double>0.5</double>
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>innerPadding</key>
@@ -167,6 +167,7 @@
             <filename>original/btn1.png</filename>
             <filename>original/btn2.jpg</filename>
             <filename>original/logo.png</filename>
+            <filename>original/logo2.png</filename>
             <filename>original/pic1.jpg</filename>
             <filename>original/pic2.jpg</filename>
             <filename>original/pic4.jpg</filename>
@@ -178,7 +179,6 @@
             <filename>original/pic10.png</filename>
             <filename>original/pic11.png</filename>
             <filename>original/t1.png</filename>
-            <filename>original/logo2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

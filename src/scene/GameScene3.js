@@ -41,7 +41,7 @@ GAME.GameScene3 = function ()
         _stage1Container.addChild(_pic6);
         _pic6.alpha=0;
         TweenMax.to(_pic6, 1, { alpha: 1,ease:Strong.easeOut,delay:0.6});
-        TweenMax.to(_pic6.position, 1, { y: -300*GAME.imageScale,ease:Elastic.easeOut,delay:0.6});
+        TweenMax.to(_pic6.position, 1, { y: -300*GAME.positionScale,ease:Elastic.easeOut,delay:0.6});
 
 
     }

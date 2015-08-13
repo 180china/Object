@@ -34,3 +34,14 @@ GAME.Utils.isAndroid=function()
     }
     return flag;
 }
+
+GAME.Utils.isM2=function()
+{
+    var userAgentInfo = navigator.userAgent;
+    var flag = false;
+    if (userAgentInfo.indexOf("m2") > 0)
+    {
+        flag = true;
+    }
+    return flag;
+}
