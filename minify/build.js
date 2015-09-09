@@ -15,7 +15,6 @@ var JSfiles = [
   path.resolve(__dirname, '../libs/zepto.min.js'),
   path.resolve(__dirname, '../libs/stats.min.js'),
   path.resolve(__dirname, '../libs/pixi.min.js'),
-  path.resolve(__dirname, '../libs/spp.min.js'),
   path.resolve(__dirname, '../libs/TweenMax.min.js'),
   path.resolve(__dirname, '../libs/soundjs-0.6.1.min.js'),
 
@@ -23,10 +22,11 @@ var JSfiles = [
   path.resolve(__dirname, '../src/Utils.js'),
   path.resolve(__dirname, '../src/H5Sound.js'),
   path.resolve(__dirname, '../src/AssetsManager.js'),
+  path.resolve(__dirname, '../src/event/Event.js'),
+  path.resolve(__dirname, '../src/event/EventDispatcher.js'),
   path.resolve(__dirname, '../src/scene/Scene.js'),
   path.resolve(__dirname, '../src/scene/GameScene1.js'),
   path.resolve(__dirname, '../src/scene/GameScene2.js'),
-  path.resolve(__dirname, '../src/scene/GameScene3.js'),
 
   path.resolve(__dirname, '../src/main.js')
 ];
