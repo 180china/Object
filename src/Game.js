@@ -12,6 +12,5 @@ GAME.SCENE_OUT_COMPLETE="sceneOutComplete";
 GAME.ON_ENTER_FRAME="onEnterFrame";
 GAME.retinaSupport=true;
 
-GAME.Sound=null;
 GAME.imageScale=1;
 GAME.positionScale=1;

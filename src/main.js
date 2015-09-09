@@ -41,9 +41,9 @@ function resizeCanvas()
         $("html,body").scrollLeft(0);
         return;
     }
-
-
 }
+
+
 function initStatsBar()
 {
     stats = new Stats();
@@ -88,12 +88,26 @@ function init()
         });
         initScene();
     };
-    assetsManager.start();
-    animate();
 
-    GAME.Sound=new GameSound();
-    GAME.Sound.addSound("bgSound",true);
+    /////////////////initSound
+    var sounds = [
+    {src: "sound/s1.mp3", id: "s1"},
+    {src: "sound/s2.mp3", id: "s2"},
+    {src: "sound/s3.mp3", id: "s3"},
+    {src: "sound/bg.mp3", id: "bg"}
+    ];
+    H5Sound.load(sounds,soundLoadComplete);
+
+    function soundLoadComplete()
+    {
+        H5Sound.play("bg",0);
+
+        assetsManager.start();
+        animate();
+    }
+    //////////////
 }
+
 
 
 function initScene()
@@ -102,13 +116,12 @@ function initScene()
     _logo.scale.y = _logo.scale.x=GAME.imageScale;
     stage.addChild(_logo);
 
-    GAME.Sound.playSound("bgSound");
-
     initScene1();
 }
 
 function initScene1()
 {
+    H5Sound.play("s1",1);
     gameScene=new GAME.GameScene1();
     stage.addChild(gameScene);
 
@@ -126,6 +139,7 @@ function initScene1()
 
 function initScene2()
 {
+    H5Sound.play("s3",1);
     gameScene=new GAME.GameScene2();
     stage.addChild(gameScene);
 

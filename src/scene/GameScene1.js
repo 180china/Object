@@ -142,6 +142,7 @@ GAME.GameScene1 = function ()
 
     function initStage2()
     {
+        H5Sound.play("s2",1);
         _stage2Container = new PIXI.Container();
         _this.addChild(_stage2Container);
 
