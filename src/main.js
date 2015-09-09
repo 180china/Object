@@ -1,6 +1,7 @@
 var view,stage,renderer,gameScene,assetsManager,logo,stats;
 $(document).ready(function()
 {
+    document.addEventListener('touchmove', function(event){event.preventDefault();}, false);
 
     var devicePixelRatio = window.devicePixelRatio || 1;
     var initialScale=Math.floor(1/devicePixelRatio *10)*0.1;
