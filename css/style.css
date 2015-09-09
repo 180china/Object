@@ -20,7 +20,7 @@ body,html {
 }
 #landscape
 {
-    background:#000000 url(assets/orientation.jpg) center center no-repeat;
+    background:#000000 url(../assets/orientation.jpg) center center no-repeat;
     position: absolute;
     z-index: 1;
 }
