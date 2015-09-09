@@ -51,18 +51,18 @@ new compressor.minify({
 });
 
 // Minified
-new compressor.minify({
-  type: 'uglifyjs',
-  fileIn: JSfiles,
-  fileOut: path.resolve(__dirname, '../bin/main.min.js'),
-  callback: function(e){
-    if (!e) {
-      console.log('minified complete');
-    } else {
-      console.log('unable to minify', e);
-    }
-  }
-});
+// new compressor.minify({
+//   type: 'uglifyjs',
+//   fileIn: JSfiles,
+//   fileOut: path.resolve(__dirname, '../bin/main.min.js'),
+//   callback: function(e){
+//     if (!e) {
+//       console.log('minified complete');
+//     } else {
+//       console.log('unable to minify', e);
+//     }
+//   }
+// });
 
 
 // Using Sqwish
