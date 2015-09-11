@@ -7,6 +7,7 @@ Based on pixi.js https://github.com/pixijs/
 Reset event/Event.js EventDispatcher.js
 
 Add H5Sound.js
+```html
     var sounds = [
     {src: "sound/s1.mp3", id: "s1"},
     {src: "sound/s2.mp3", id: "s2"},
@@ -18,7 +19,7 @@ Add H5Sound.js
     {
       H5Sound.play("bg",0);
     }
-
+```
 Javascript/CSS minifier 
   1. Make sure [Node.js](http://nodejs.org/download/) is installed.
   2. Open up a [command line interface](http://en.wikipedia.org/wiki/Command-line_interface).
