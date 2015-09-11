@@ -2,11 +2,22 @@
 HTML5  Project 3.1.2
 
 Mobile Html5 frameworks
-base with pixi.js https://github.com/pixijs/
+Based on pixi.js https://github.com/pixijs/
 
-reset event/Event.js EventDispatcher.js
+Reset event/Event.js EventDispatcher.js
 
-add H5Sound.js
+Add H5Sound.js
+    var sounds = [
+    {src: "sound/s1.mp3", id: "s1"},
+    {src: "sound/s2.mp3", id: "s2"},
+    {src: "sound/s3.mp3", id: "s3"},
+    {src: "sound/bg.mp3", id: "bg"}
+    ];
+    H5Sound.load(sounds,soundLoadComplete);
+    function soundLoadComplete()
+    {
+      H5Sound.play("bg",0);
+    }
 
 Javascript/CSS minifier 
   1. Make sure [Node.js](http://nodejs.org/download/) is installed.
