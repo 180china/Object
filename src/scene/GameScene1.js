@@ -116,15 +116,6 @@ GAME.GameScene1 = function ()
             initStage2();
         }
 
-
-
-
-
-
-
-
-
-
     }
 
     function removeStage1()

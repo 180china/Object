@@ -117,7 +117,10 @@ function initScene()
     stage.addChild(_logo);
 
     initScene1();
+
 }
+
+
 
 function initScene1()
 {

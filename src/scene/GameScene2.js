@@ -96,8 +96,69 @@ GAME.GameScene2 = function ()
 
 
 
+        for (var i = 0; i < 4; i++)
+        {
+            var touchPoint = new PIXI.Sprite(PIXI.Texture.fromFrame("pic7.png"));
+
+            touchPoint.interactive = true;
+            touchPoint.buttonMode = true;
+            touchPoint.anchor.set(0.5);
+
+            touchPoint
+                // events for drag start
+                .on('mousedown', onDragStart)
+                .on('touchstart', onDragStart)
+                // events for drag end
+                .on('mouseup', onDragEnd)
+                .on('mouseupoutside', onDragEnd)
+                .on('touchend', onDragEnd)
+                .on('touchendoutside', onDragEnd)
+                // events for drag move
+                .on('mousemove', onDragMove)
+                .on('touchmove', onDragMove);
+
+            // move the sprite to its designated position
+            touchPoint.position.x = Math.floor(Math.random() * 200);
+            touchPoint.position.y = Math.floor(Math.random() * 200);
+            // add it to the stage
+            _stage1Container.addChild(touchPoint);
+        }
+
     }
 
+
+    function onDragStart(event)
+    {
+        this.data = event.data;
+        this.alpha = 0.5;
+        this.dragging = true;
+
+        this.id = this.data.identifier;
+    }
+
+    function onDragEnd(event)
+    {
+        if (event.data.identifier == this.id)
+        {
+            this.alpha = 1;
+            this.dragging = false;
+            this.data = null;
+            this.id=null;
+        }
+    }
+
+    function onDragMove(event)
+    {
+        if (event.data.identifier == this.id)
+        {
+            if (this.dragging)
+            {
+                var newPosition = this.data.getLocalPosition(this.parent);
+                this.position.x = newPosition.x;
+                this.position.y = newPosition.y;
+            }
+        }
+    }
 
 
 
@@ -105,11 +166,6 @@ GAME.GameScene2 = function ()
     {
 
     }
-
-
-
-
-
 
 
 };
