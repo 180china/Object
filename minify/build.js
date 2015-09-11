@@ -37,32 +37,32 @@ var CSSfiles = [
 ];
 
 // Concatenated
-new compressor.minify({
-  type: 'no-compress',
-  fileIn: JSfiles,
-  fileOut: path.resolve(__dirname, '../bin/main.js'),
-  callback: function(e) {
-    if (!e) {
-      console.log('concatenation complete');
-    } else {
-      console.log('unable to concatenate', e);
-    }
-  }
-});
-
-// Minified
 // new compressor.minify({
-//   type: 'uglifyjs',
+//   type: 'no-compress',
 //   fileIn: JSfiles,
-//   fileOut: path.resolve(__dirname, '../bin/main.min.js'),
-//   callback: function(e){
+//   fileOut: path.resolve(__dirname, '../bin/main.js'),
+//   callback: function(e) {
 //     if (!e) {
-//       console.log('minified complete');
+//       console.log('concatenation complete');
 //     } else {
-//       console.log('unable to minify', e);
+//       console.log('unable to concatenate', e);
 //     }
 //   }
 // });
+
+//Minified
+new compressor.minify({
+  type: 'uglifyjs',
+  fileIn: JSfiles,
+  fileOut: path.resolve(__dirname, '../bin/main.min.js'),
+  callback: function(e){
+    if (!e) {
+      console.log('minified complete');
+    } else {
+      console.log('unable to minify', e);
+    }
+  }
+});
 
 
 // Using Sqwish
