@@ -7,7 +7,7 @@ Based on pixi.js https://github.com/pixijs/
 Reset event/Event.js EventDispatcher.js
 
 Add H5Sound.js
-```html
+```javascript
   var sounds = [
   {src: "sound/s1.mp3", id: "s1"},
   {src: "sound/s2.mp3", id: "s2"},
@@ -26,7 +26,7 @@ Javascript/CSS minifier
   3. Type `cd path/to/Object`
   4. Type `npm install node-minify`
   5. Type `node ./minify/build.js`
-```html
+```javascript
   var path = require('path');
   var compressor = require('node-minify');
   var JSfiles = [
