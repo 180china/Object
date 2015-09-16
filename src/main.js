@@ -5,7 +5,7 @@ $(document).ready(function()
 
     var devicePixelRatio = window.devicePixelRatio || 1;
     var initialScale=Math.floor(1/devicePixelRatio *10)*0.1;
-    //alert(devicePixelRatio);
+    // alert(devicePixelRatio);
     //alert(navigator.userAgent);
 
     if(!GAME.Utils.isAndroid())
@@ -59,6 +59,7 @@ function init()
         resolution : dpr
     });
     GAME.renderer = renderer;
+
 
     view=renderer.view;
     view.style.position="absolute";

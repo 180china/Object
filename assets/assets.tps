@@ -179,6 +179,7 @@
             <filename>original/pic11.png</filename>
             <filename>original/t1.png</filename>
             <filename>original/logo2.png</filename>
+            <filename>original/star.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

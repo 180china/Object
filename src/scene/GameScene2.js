@@ -25,14 +25,16 @@ GAME.GameScene2 = function ()
     this.update = function ()
     {
         if (!_isSceneIn)return;
+
+        updateParticle();
     }
 
 
     function initStage1()
     {
         _stage1Container = new PIXI.Container();
-        _stage1Container.position.x = GAME.stageWidth/2;
-        _stage1Container.position.y = GAME.stageHeight/2;
+        _stage1Container.x = GAME.stageWidth/2;
+        _stage1Container.y = GAME.stageHeight/2;
         _this.addChild(_stage1Container);
 
         _pic6 = PIXI.Sprite.fromFrame("pic6.jpg");
@@ -41,7 +43,7 @@ GAME.GameScene2 = function ()
         _stage1Container.addChild(_pic6);
         _pic6.alpha=0;
         TweenMax.to(_pic6, 1, { alpha: 1,ease:Strong.easeOut,delay:0.6});
-        TweenMax.to(_pic6.position, 1, { y: -300*GAME.positionScale,ease:Elastic.easeOut,delay:0.6});
+        TweenMax.to(_pic6, 1, { y: -300*GAME.positionScale,ease:Elastic.easeOut,delay:0.6});
 
         _pic7 = PIXI.Sprite.fromFrame("pic7.png");
         _pic7.scale.y = _pic7.scale.x=GAME.imageScale;
@@ -52,16 +54,12 @@ GAME.GameScene2 = function ()
         _pic7.scale.x=_pic7.scale.y=0;
         TweenMax.to(_pic7.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:0.8});
 
-
-
-
-
         _pic8 = PIXI.Sprite.fromFrame("pic8.png");
         _pic8.anchor.x = 0.5;
         _pic8.anchor.y = 0.5;
         _stage1Container.addChild(_pic8);
-        _pic8.position.x=-134*GAME.positionScale;
-        _pic8.position.y=-58*GAME.positionScale;
+        _pic8.x=-134*GAME.positionScale;
+        _pic8.y=-58*GAME.positionScale;
         _pic8.scale.x=_pic8.scale.y=0;
         TweenMax.to(_pic8.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:0.9});
 
@@ -70,8 +68,8 @@ GAME.GameScene2 = function ()
         _pic9.anchor.x = 0.5;
         _pic9.anchor.y = 0.5;
         _stage1Container.addChild(_pic9);
-        _pic9.position.x=-54*GAME.positionScale;
-        _pic9.position.y=-128*GAME.positionScale;
+        _pic9.x=-54*GAME.positionScale;
+        _pic9.y=-128*GAME.positionScale;
         _pic9.scale.x=_pic9.scale.y=0;
         TweenMax.to(_pic9.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1});
 
@@ -79,8 +77,8 @@ GAME.GameScene2 = function ()
         _pic10.anchor.x = 0.5;
         _pic10.anchor.y = 0.5;
         _stage1Container.addChild(_pic10);
-        _pic10.position.x=61*GAME.positionScale;
-        _pic10.position.y=-128*GAME.positionScale;
+        _pic10.x=61*GAME.positionScale;
+        _pic10.y=-128*GAME.positionScale;
         _pic10.scale.x=_pic10.scale.y=0;
         TweenMax.to(_pic10.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1.1});
 
@@ -89,12 +87,13 @@ GAME.GameScene2 = function ()
         _pic11.anchor.x = 0.5;
         _pic11.anchor.y = 0.5;
         _stage1Container.addChild(_pic11);
-        _pic11.position.x=134*GAME.positionScale;
-        _pic11.position.y=-58*GAME.positionScale;
+        _pic11.x=134*GAME.positionScale;
+        _pic11.y=-58*GAME.positionScale;
         _pic11.scale.x=_pic11.scale.y=0;
         TweenMax.to(_pic11.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1.2});
 
 
+        initParticle();
 
         for (var i = 0; i < 4; i++)
         {
@@ -103,6 +102,7 @@ GAME.GameScene2 = function ()
             touchPoint.interactive = true;
             touchPoint.buttonMode = true;
             touchPoint.anchor.set(0.5);
+            touchPoint.scale.set(GAME.imageScale);
 
             touchPoint
                 // events for drag start
@@ -118,19 +118,68 @@ GAME.GameScene2 = function ()
                 .on('touchmove', onDragMove);
 
             // move the sprite to its designated position
-            touchPoint.position.x = Math.floor(Math.random() * 200);
-            touchPoint.position.y = Math.floor(Math.random() * 200);
+            touchPoint.x = Math.floor(Math.random() * 200);
+            touchPoint.y = Math.floor(Math.random() * 200);
             // add it to the stage
-            _stage1Container.addChild(touchPoint);
-        }
+            _this.addChild(touchPoint);
 
+            addParticle(touchPoint);
+        }        
+    }
+
+    var ps=[],pc;
+    function initParticle()
+    {
+        pc = new PIXI.ParticleContainer(10000, {
+                        scale: true,
+                        position: true,
+                        //rotation: true,
+                        //uvs: true,
+                        alpha: true
+                    });                                        
+        _this.addChild(pc);
+        if(GAME.Utils.isAndroid())pc.scale.set(window.devicePixelRatio);
+    }
+    function addParticle(parentObject)
+    {
+        for (var i = 0; i < 100; ++i)
+        {
+            var p = new PIXI.Sprite.fromFrame("star.png");
+            p.anchor.set(0.5);
+            p.scale.set((Math.random()+1)*GAME.positionScale);
+            p.x = parentObject.x;
+            p.y = parentObject.y;
+            p.parentObject=parentObject;
+            p.Xspeed=Math.random() *2-1;
+            p.Yspeed=Math.random() *2-1;
+            p.Aspeed=0.01+Math.random()*0.1;
+
+            ps.push(p);
+            pc.addChild(p);
+        }
+    }
+    function updateParticle()
+    {
+        for (var i = 0; i < ps.length; i++)
+        {
+            var p = ps[i];
+            p.alpha -= p.Aspeed;
+            p.x+=p.Xspeed;
+            p.y+=p.Yspeed;
+
+            if(p.alpha<=0) {
+                p.x = p.parentObject.x;
+                p.y = p.parentObject.y;
+                p.alpha=1;
+            }
+        }
     }
 
 
     function onDragStart(event)
     {
         this.data = event.data;
-        this.alpha = 0.5;
+        this.alpha = 0.99;
         this.dragging = true;
 
         this.id = this.data.identifier;
@@ -154,8 +203,8 @@ GAME.GameScene2 = function ()
             if (this.dragging)
             {
                 var newPosition = this.data.getLocalPosition(this.parent);
-                this.position.x = newPosition.x;
-                this.position.y = newPosition.y;
+                this.x = newPosition.x;
+                this.y = newPosition.y;
             }
         }
     }

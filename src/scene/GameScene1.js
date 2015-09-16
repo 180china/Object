@@ -113,10 +113,13 @@ GAME.GameScene1 = function ()
         _btn1.mousedown = _btn1.touchstart = function ()
         {
             removeStage1();
-            initStage2();
+            initStage2(); 
         }
 
     }
+
+
+
 
     function removeStage1()
     {

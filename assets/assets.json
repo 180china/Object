@@ -2,7 +2,7 @@
 
 "btn1.png":
 {
-	"frame": {"x":644,"y":390,"w":104,"h":52},
+	"frame": {"x":706,"y":390,"w":104,"h":52},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":104,"h":52},
@@ -26,7 +26,7 @@
 },
 "logo2.png":
 {
-	"frame": {"x":474,"y":2,"w":84,"h":84},
+	"frame": {"x":748,"y":2,"w":84,"h":84},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":84},
@@ -34,7 +34,7 @@
 },
 "pic1.jpg":
 {
-	"frame": {"x":560,"y":2,"w":272,"h":84},
+	"frame": {"x":474,"y":2,"w":272,"h":84},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":272,"h":84},
@@ -42,7 +42,7 @@
 },
 "pic10.png":
 {
-	"frame": {"x":659,"y":305,"w":72,"h":72},
+	"frame": {"x":585,"y":305,"w":72,"h":72},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":72,"h":72},
@@ -106,11 +106,19 @@
 },
 "pic9.png":
 {
-	"frame": {"x":585,"y":305,"w":72,"h":72},
+	"frame": {"x":659,"y":305,"w":72,"h":72},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":72,"h":72},
 	"sourceSize": {"w":74,"h":74}
+},
+"star.png":
+{
+	"frame": {"x":644,"y":390,"w":60,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":1,"w":60,"h":60},
+	"sourceSize": {"w":64,"h":64}
 },
 "t1.png":
 {
@@ -127,6 +135,6 @@
 	"format": "RGBA8888",
 	"size": {"w":834,"h":508},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:f0170750aa0b440ca2865292050feccd:1/1$"
+	"smartupdate": "$TexturePacker:SmartUpdate:f25c86682a64983056b9cd1e90687de5:1/1$"
 }
 }
