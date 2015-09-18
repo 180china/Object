@@ -4,16 +4,8 @@ $(document).ready(function()
     document.addEventListener('touchmove', function(event){event.preventDefault();}, false);
 
     var devicePixelRatio = window.devicePixelRatio || 1;
-    var initialScale=Math.floor(1/devicePixelRatio *10)*0.1;
-    // alert(devicePixelRatio);
-    //alert(navigator.userAgent);
-
-    if(!GAME.Utils.isAndroid())
-    {
-        $("#viewport")[0].content="width=device-width, minimum-scale=0.5, maximum-scale=0.5";
-    }else{
-        console.log("isAndroid");
-    }
+    var iits=1/devicePixelRatio;
+    $("#viewport")[0].content="width=device-width,initial-scale="+iits.toString()+" minimum-scale="+iits.toString()+", maximum-scale="+iits.toString();
 
     $(window).resize(resizeCanvas);
     resizeCanvas();
@@ -53,10 +45,8 @@ function initStatsBar()
 };
 function init()
 {
-    var dpr = window.devicePixelRatio || 1;
     renderer = PIXI.autoDetectRenderer(GAME.stageWidth, GAME.stageHeight,{
-        backgroundColor : 0x1099bb,
-        resolution : dpr
+        backgroundColor : 0x1099bb
     });
     GAME.renderer = renderer;
 
@@ -70,12 +60,10 @@ function init()
     document.body.appendChild(view);
 
     stage = new PIXI.Container();
-    stage.scale.x = 1/dpr;
-    stage.scale.y = 1/dpr;
     GAME.stage = stage;
 
     //////////////////
-    GAME.imageScale = (Math.floor(GAME.stageWidth/640*100)+1)/100;
+    GAME.imageScale = GAME.stageWidth/640;
     GAME.positionScale=1*GAME.imageScale;
     /////////////////
 
