@@ -1,3 +1,4 @@
+var test;
 var view,stage,renderer,gameScene,assetsManager,logo,stats;
 $(document).ready(function()
 {
