@@ -1,4 +1,3 @@
-var test;
 var view,stage,renderer,gameScene,assetsManager,logo,stats;
 $(document).ready(function()
 {
@@ -103,11 +102,11 @@ function init()
 function initScene()
 {
     var _logo = PIXI.Sprite.fromFrame("logo2.png");
-    _logo.scale.y = _logo.scale.x=GAME.imageScale;
+    _logo.scale.set(GAME.imageScale);
+    _logo.x=GAME.stageWidth-_logo.width;
     stage.addChild(_logo);
 
     initScene1();
-
 }
 
 

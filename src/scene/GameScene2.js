@@ -92,8 +92,20 @@ GAME.GameScene2 = function ()
         _pic11.scale.x=_pic11.scale.y=0;
         TweenMax.to(_pic11.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1.2});
 
+        TweenMax.delayedCall(2,initParticle);     
+    }
 
-        initParticle();
+    var ps=[],pc;
+    function initParticle()
+    {
+        pc = new PIXI.ParticleContainer(10000, {
+                        scale: true,
+                        position: true,
+                        //rotation: true,
+                        //uvs: true,
+                        alpha: true
+                    });                                        
+        _this.addChild(pc);
 
         for (var i = 0; i < 4; i++)
         {
@@ -118,27 +130,13 @@ GAME.GameScene2 = function ()
                 .on('touchmove', onDragMove);
 
             // move the sprite to its designated position
-            touchPoint.x = Math.floor(Math.random() * 200);
-            touchPoint.y = Math.floor(Math.random() * 200);
+            touchPoint.x = Math.floor(Math.random() * 300);
+            touchPoint.y = Math.floor(Math.random() * 300);
             // add it to the stage
             _this.addChild(touchPoint);
 
             addParticle(touchPoint);
-        }        
-    }
-
-    var ps=[],pc;
-    function initParticle()
-    {
-        pc = new PIXI.ParticleContainer(10000, {
-                        scale: true,
-                        position: true,
-                        //rotation: true,
-                        //uvs: true,
-                        alpha: true
-                    });                                        
-        _this.addChild(pc);
-        if(GAME.Utils.isAndroid())pc.scale.set(window.devicePixelRatio);
+        } 
     }
     function addParticle(parentObject)
     {
@@ -205,6 +203,7 @@ GAME.GameScene2 = function ()
                 var newPosition = this.data.getLocalPosition(this.parent);
                 this.x = newPosition.x;
                 this.y = newPosition.y;
+
             }
         }
     }
