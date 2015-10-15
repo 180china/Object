@@ -1,6 +1,6 @@
 GAME.AssetsManager=function()
 {
-    var _asset = ["assets/assets.js"];
+    var _asset = ["assets/assets.json"];
     var _assetLoader=new PIXI.loaders.Loader();
 
     this.onComplete=null;
