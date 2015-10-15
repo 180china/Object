@@ -8,10 +8,14 @@ var H5Sound= {
         var _num=0;
         function soundLoaded(e) 
         {
+            if(_num==0)
+            {
+                if (fun)fun();
+            }
             _num++;
             if(_num>=sounds.length)
             {
-                if (fun)fun();
+                //if (fun)fun();
             } 
         }
     },

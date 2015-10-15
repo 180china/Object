@@ -10,6 +10,10 @@ GAME.SCENE_OUT="sceneOut";
 GAME.SCENE_IN_COMPLETE="sceneInComplete";
 GAME.SCENE_OUT_COMPLETE="sceneOutComplete";
 GAME.ON_ENTER_FRAME="onEnterFrame";
+
+GAME.GO_SCENE3="goScene3";
+
+
 GAME.retinaSupport=true;
 
 GAME.imageScale=1;

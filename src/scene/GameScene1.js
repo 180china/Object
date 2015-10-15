@@ -51,7 +51,7 @@ GAME.GameScene1 = function ()
 
 
 
-        _txt1= new PIXI.Text("Text1", { font: "50px Helvetica", fill: "#FFFFFF" });
+        _txt1= new PIXI.Text("Scene1", { font: "30px Helvetica", fill: "#FFFFFF" });
         _stage1Container.addChild(_txt1);
         _txt1.anchor.x = 0.5;
         _txt1.anchor.y = 1;
@@ -71,10 +71,6 @@ GAME.GameScene1 = function ()
         _stage1Container.addChild(_mask);
         _mask.position.y = -460*GAME.positionScale;
         _txt1.mask = _mask;
-
-
-
-
 
 
 
@@ -105,83 +101,27 @@ GAME.GameScene1 = function ()
         _stage1Container.addChild(_btn1);
         _btn1.alpha=0;
         TweenMax.to(_btn1, 1, { alpha: 1,ease:Strong.easeOut,delay:1.4});
-        TweenMax.to(_btn1.position, 1, { y: -20*GAME.positionScale,ease:Elastic.easeOut,delay:1.4});
+        TweenMax.to(_btn1.position, 1, { y: -60*GAME.positionScale,ease:Elastic.easeOut,delay:1.4});
 
 
 
         _btn1.interactive = true;
         _btn1.mousedown = _btn1.touchstart = function ()
         {
-            removeStage1();
-            initStage2(); 
+            _this.sceneOut();
+
+            //GO Scene3
+            _this.dispatchEvent(new GAME.Event(GAME.GO_SCENE3));
         }
 
     }
 
-
-
-
-    function removeStage1()
-    {
-        TweenMax.to(_stage1Container, 0.4, { alpha: 0,
-            onComplete:function()
-            {
-                _this.removeChild(_stage1Container);
-                _stage1Container=null;
-            }
-        });
-    }
-
-
-
-    function initStage2()
-    {
-        H5Sound.play("s2",1);
-        _stage2Container = new PIXI.Container();
-        _this.addChild(_stage2Container);
-
-
-        _pic4 = PIXI.Sprite.fromFrame("pic4.jpg");
-        _pic4.scale.y = _pic4.scale.x=GAME.imageScale;
-        _pic4.position.x=0;
-        _pic4.position.y=100*GAME.positionScale;
-        _stage2Container.addChild(_pic4);
-        _pic4.alpha=0;
-        TweenMax.to(_pic4, 0.6, {alpha: 1});
-
-
-        _pic5 = PIXI.Sprite.fromFrame("pic5.png");
-        _pic5.scale.y = _pic5.scale.x=GAME.imageScale;
-        _pic5.anchor.x = 0.5;
-        _pic5.anchor.y = 0.5;
-        _pic5.position.x=GAME.stageWidth/2;
-        _pic5.position.y=GAME.stageHeight/2;
-        _stage2Container.addChild(_pic5);
-        _pic5.scale.x=_pic5.scale.y=0;
-        TweenMax.to(_pic5.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:0.8});
-
-        _btn2 = PIXI.Sprite.fromFrame("btn2.jpg");
-        _btn2.scale.y = _btn2.scale.x=GAME.imageScale;
-        _btn2.anchor.x = 0.5;
-        _btn2.anchor.y = 0.5;
-        _btn2.position.x=GAME.stageWidth/2;
-        _btn2.position.y=_pic5.position.y+240*GAME.positionScale;
-        _stage2Container.addChild(_btn2);
-        _btn2.scale.x=_btn2.scale.y=0;
-        TweenMax.to(_btn2.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:0.9});
-
-        _btn2.interactive = true;
-        _btn2.mousedown = _btn2.touchstart = function ()
-        {
-            _this.sceneOut()
-        }
-    }
 
 
 
     this.sceneOut = function ()
     {
-        GAME.Scene.prototype.sceneIn.apply(this);
+        GAME.Scene.prototype.sceneOut.apply(this);
         TweenMax.to(this, 0.4, {alpha:0,
             onComplete:function(){_this.sceneOutComplete()}
         });

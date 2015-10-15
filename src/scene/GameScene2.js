@@ -92,7 +92,22 @@ GAME.GameScene2 = function ()
         _pic11.scale.x=_pic11.scale.y=0;
         TweenMax.to(_pic11.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1.2});
 
-        TweenMax.delayedCall(2,initParticle);     
+
+
+        _txt1= new PIXI.Text("Scene2", { font: "30px Helvetica", fill: "#FFFFFF" });
+        _stage1Container.addChild(_txt1);
+        _txt1.anchor.x = 0.5;
+        _txt1.anchor.y = 1;
+        _txt1.alpha=0;
+        TweenMax.to(_txt1, 1, { alpha: 1,ease:Strong.easeOut,delay:1});
+        TweenMax.to(_txt1.position, 1, { y: 200*GAME.positionScale,ease:Elastic.easeOut,delay:0.8});
+
+        _txt1.rotation = -0.05;
+        TweenMax.to(_txt1, 0.1, { rotation: 0.1,ease:Linear.easeNone,repeat:-1,yoyo:true,delay:2});
+
+
+
+        // TweenMax.delayedCall(2,initParticle);     
     }
 
     var ps=[],pc;
@@ -212,7 +227,10 @@ GAME.GameScene2 = function ()
 
     this.sceneOut = function ()
     {
-
+        GAME.Scene.prototype.sceneOut.apply(this);
+        TweenMax.to(this, 0.4, {alpha:0,
+            onComplete:function(){_this.sceneOutComplete()}
+        });
     }
 
 
