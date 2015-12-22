@@ -18,11 +18,10 @@ body,html {
     position: absolute;
     z-index: 0;
 }
+
 #landscape
 {
     background:#000000 url(../assets/orientation.jpg) center center no-repeat;
     position: absolute;
     z-index: 1;
 }
-
-
