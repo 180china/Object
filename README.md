@@ -1,5 +1,5 @@
 # Object
-HTML5  Project 3.1.2
+HTML5  Project 3.1.1
 
 Mobile Html5 frameworks
 Based on pixi.js https://github.com/pixijs/
