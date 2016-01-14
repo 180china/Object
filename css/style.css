@@ -9,14 +9,18 @@ body,html {
     -o-user-select: none;
     -ms-user-select: none;
 
-	background-color: #1099bb;
+	/*background-color: #1099bb;*/
+	background-color: black;
 }
 
-#canvas
+#gameCanvas
 {
     display:block;
-    position: absolute;
+    position: relative;
+    top:0px;
+    left:0px;
     z-index: 0;
+    margin:0 auto;
 }
 
 #landscape
