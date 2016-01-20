@@ -1,5 +1,7 @@
 
 var GAME = GAME || {};
+//设置web app的自适应模式
+GAME.adaptiveModel="topLeft";
 GAME.stageWidth=0;
 GAME.stageHeight=0;
 GAME.stage=null;
