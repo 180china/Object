@@ -1,5 +1,5 @@
 # Object
-HTML5  Project 3.1.1
+HTML5  Project 3.1.2
 
 Mobile Html5 frameworks
 Based on pixi.js https://github.com/pixijs/
@@ -23,9 +23,9 @@ Add H5Sound.js
 Javascript/CSS minifier 
   1. Make sure [Node.js](http://nodejs.org/download/) is installed.
   2. Open up a [command line interface](http://en.wikipedia.org/wiki/Command-line_interface).
-  3. Type `cd path/to/Object`
+  3. Type `cd path/to/Object/minify/`
   4. Type `npm install node-minify`
-  5. Type `node ./minify/build.js`
+  5. Type `node ./build.js`
 ```javascript
   var path = require('path');
   var compressor = require('node-minify');
@@ -40,18 +40,18 @@ Javascript/CSS minifier
   ];
   
   //Minified
-  new compressor.minify({
-    type: 'uglifyjs',
-    fileIn: JSfiles,
-    fileOut: path.resolve(__dirname, '../bin/main.min.js'),
+  compressor.minify({
+    compressor: 'gcc',
+    input: JSfiles,
+    output: path.resolve(__dirname, '../bin/object.min.js'),
     callback: function(e){}
   });
   
   // Using Sqwish
-  new compressor.minify({
-    type: 'sqwish',
-    fileIn: CSSfiles,
-    fileOut: path.resolve(__dirname, '../bin/style-min.css'),
+  compressor.minify({
+    compressor: 'sqwish',
+    input: CSSfiles,
+    output: path.resolve(__dirname, '../bin/style.min.css'),
     callback: function(e) {}
   });
 ```

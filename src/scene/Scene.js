@@ -4,6 +4,7 @@ GAME.Scene = function ()
 };
 GAME.Utils.inherit(GAME.Scene, PIXI.Container);
 GAME.Utils.extend(GAME.Scene.prototype, GAME.EventDispatcher.prototype);
+
 GAME.Scene.prototype.init = function (){}
 GAME.Scene.prototype.destroy = function (){}
 GAME.Scene.prototype.sceneIn = function ()
