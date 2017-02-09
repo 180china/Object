@@ -1,6 +1,6 @@
 var H5Sound= {
     load : function(sounds, fun) {
-        createjs.Sound.registerPlugins([createjs.WebAudioPlugin]);
+
         createjs.Sound.alternateExtensions = ["mp3"];   // add other extensions to try loading if the src file extension is not supported
         createjs.Sound.addEventListener("fileload", createjs.proxy(soundLoaded, this)); // add an event listener for when load is completed
         createjs.Sound.registerSounds(sounds);
@@ -8,14 +8,10 @@ var H5Sound= {
         var _num=0;
         function soundLoaded(e) 
         {
-            if(_num==0)
-            {
-                if (fun)fun();
-            }
             _num++;
             if(_num>=sounds.length)
             {
-                //if (fun)fun();
+                if (fun)fun();
             } 
         }
     },
