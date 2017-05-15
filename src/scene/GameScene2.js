@@ -138,7 +138,6 @@ GAME.GameScene2 = function ()
                         alpha: true
                     });                                        
         _this.addChild(pc);
-        if(GAME.Utils.isAndroid())pc.scale.set(window.devicePixelRatio);
     }
     function addParticle(parentObject)
     {
@@ -146,7 +145,7 @@ GAME.GameScene2 = function ()
         {
             var p = new PIXI.Sprite.fromFrame("star.png");
             p.anchor.set(0.5);
-            p.scale.set((Math.random()+1)*GAME.positionScale);
+            p.scale.set((Math.random()+1)*GAME.imageScale);
             p.x = parentObject.x;
             p.y = parentObject.y;
             p.parentObject=parentObject;

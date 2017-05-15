@@ -136,7 +136,7 @@ GAME.GameScene1 = function ()
 
     function initStage2()
     {
-        H5Sound.play("s2",1);
+        PIXI.sound.play("s2");
         _stage2Container = new PIXI.Container();
         _this.addChild(_stage2Container);
 
@@ -181,7 +181,7 @@ GAME.GameScene1 = function ()
 
     this.sceneOut = function ()
     {
-        GAME.Scene.prototype.sceneIn.apply(this);
+        GAME.Scene.prototype.sceneOut.apply(this);
         TweenMax.to(this, 0.4, {alpha:0,
             onComplete:function(){_this.sceneOutComplete()}
         });
