@@ -38,59 +38,59 @@ GAME.GameScene2 = function ()
         _this.addChild(_stage1Container);
 
         _pic6 = PIXI.Sprite.fromFrame("pic6.jpg");
-        _pic6.scale.y = _pic6.scale.x=GAME.imageScale;
+        //_pic6.scale.y = _pic6.scale.x=GAME.imageScale;
         _pic6.anchor.x = 0.5;
         _stage1Container.addChild(_pic6);
         _pic6.alpha=0;
         TweenMax.to(_pic6, 1, { alpha: 1,ease:Strong.easeOut,delay:0.6});
-        TweenMax.to(_pic6, 1, { y: -300*GAME.positionScale,ease:Elastic.easeOut,delay:0.6});
+        TweenMax.to(_pic6, 1, { y: -300,ease:Elastic.easeOut,delay:0.6});
 
         _pic7 = PIXI.Sprite.fromFrame("pic7.png");
-        _pic7.scale.y = _pic7.scale.x=GAME.imageScale;
+        //_pic7.scale.y = _pic7.scale.x=GAME.imageScale;
         _pic7.anchor.x = 0.5;
         _pic7.anchor.y = 0.5;
         _stage1Container.addChild(_pic7);
 
         _pic7.scale.x=_pic7.scale.y=0;
-        TweenMax.to(_pic7.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:0.8});
+        TweenMax.to(_pic7.scale, 1, { x:1, y:1,ease:Elastic.easeOut,delay:0.8});
 
         _pic8 = PIXI.Sprite.fromFrame("pic8.png");
         _pic8.anchor.x = 0.5;
         _pic8.anchor.y = 0.5;
         _stage1Container.addChild(_pic8);
-        _pic8.x=-134*GAME.positionScale;
-        _pic8.y=-58*GAME.positionScale;
+        _pic8.x=-134;
+        _pic8.y=-58;
         _pic8.scale.x=_pic8.scale.y=0;
-        TweenMax.to(_pic8.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:0.9});
+        TweenMax.to(_pic8.scale, 1, { x:1, y:1,ease:Elastic.easeOut,delay:0.9});
 
 
         _pic9 = PIXI.Sprite.fromFrame("pic9.png");
         _pic9.anchor.x = 0.5;
         _pic9.anchor.y = 0.5;
         _stage1Container.addChild(_pic9);
-        _pic9.x=-54*GAME.positionScale;
-        _pic9.y=-128*GAME.positionScale;
+        _pic9.x=-54;
+        _pic9.y=-128;
         _pic9.scale.x=_pic9.scale.y=0;
-        TweenMax.to(_pic9.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1});
+        TweenMax.to(_pic9.scale, 1, { x:1, y:1,ease:Elastic.easeOut,delay:1});
 
         _pic10 = PIXI.Sprite.fromFrame("pic10.png");
         _pic10.anchor.x = 0.5;
         _pic10.anchor.y = 0.5;
         _stage1Container.addChild(_pic10);
-        _pic10.x=61*GAME.positionScale;
-        _pic10.y=-128*GAME.positionScale;
+        _pic10.x=61;
+        _pic10.y=-128;
         _pic10.scale.x=_pic10.scale.y=0;
-        TweenMax.to(_pic10.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1.1});
+        TweenMax.to(_pic10.scale, 1, { x:1, y:1,ease:Elastic.easeOut,delay:1.1});
 
 
         _pic11 = PIXI.Sprite.fromFrame("pic11.png");
         _pic11.anchor.x = 0.5;
         _pic11.anchor.y = 0.5;
         _stage1Container.addChild(_pic11);
-        _pic11.x=134*GAME.positionScale;
-        _pic11.y=-58*GAME.positionScale;
+        _pic11.x=134;
+        _pic11.y=-58;
         _pic11.scale.x=_pic11.scale.y=0;
-        TweenMax.to(_pic11.scale, 1, { x: GAME.imageScale, y: GAME.imageScale,ease:Elastic.easeOut,delay:1.2});
+        TweenMax.to(_pic11.scale, 1, { x:1, y:1,ease:Elastic.easeOut,delay:1.2});
 
 
         initParticle();
@@ -102,7 +102,7 @@ GAME.GameScene2 = function ()
             touchPoint.interactive = true;
             touchPoint.buttonMode = true;
             touchPoint.anchor.set(0.5);
-            touchPoint.scale.set(GAME.imageScale);
+            //touchPoint.scale.set(GAME.imageScale);
 
             touchPoint
                 // events for drag start
@@ -145,7 +145,7 @@ GAME.GameScene2 = function ()
         {
             var p = new PIXI.Sprite.fromFrame("star.png");
             p.anchor.set(0.5);
-            p.scale.set((Math.random()+1)*GAME.imageScale);
+            p.scale.set((Math.random()+1));
             p.x = parentObject.x;
             p.y = parentObject.y;
             p.parentObject=parentObject;
