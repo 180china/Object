@@ -1,74 +1,81 @@
-var view, stage, renderer, gameScene, assetsManager, logo, stats;
-$(document).ready(function() {
+var view,
+    stage,
+    renderer,
+    gameScene,
+    assetsManager,
+    logo,
+    stats;
+
+var winWidth,
+    winHeight;
+
+$(function(){
+    // document.addEventListener('touchmove', function(event){event.preventDefault();}, false);
+
     $(window).resize(resizeCanvas);
     resizeCanvas();
 
-    init();
     initStatsBar();
 });
 
-function resizeCanvas() {
-    var winWidth = $(window).get(0).innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    var winHeight = $(window).get(0).innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    GAME.stageWidth = winWidth;
-    GAME.stageHeight = winHeight;
+function resizeCanvas()
+{
+    winWidth=$(window).get(0).innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+    winHeight=$(window).get(0).innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
 
-    if (winWidth > winHeight) {
-        $("#landscape").width(winWidth);
-        $("#landscape").height(winHeight);
-        $("#landscape").show();
-        return;
-    }
-    if (view) {
-        $("#landscape").hide();
+    if(winHeight>winWidth && !view)
+    {
+        init();
         $("html,body").scrollLeft(0);
-        return;
     }
 }
 
 
-function initStatsBar() {
+function initStatsBar()
+{
     stats = new Stats();
-    stats.domElement.style.position = 'absolute';
-    stats.domElement.style.top = '0px';
     document.body.appendChild(stats.domElement);
-};
+}
+
 
 function init() {
     var dpr = window.devicePixelRatio || 1;
-    renderer = PIXI.autoDetectRenderer(GAME.stageWidth, GAME.stageHeight, {
-        backgroundColor: 0x1099bb,
-        // resolution: dpr
+    /*
+     * 缩放适配方案
+     * 1、宽高比例不变
+     * 2、canvas width=640，高度等比例设置（winWidth/winHeight=640/x)
+     * 3、canvas css(width=winWidth,height=winHeight)
+     * */
+
+    var stageWidth=640;//设计图的宽度
+
+    GAME.stageWidth=stageWidth;
+    GAME.stageHeight=(stageWidth*winHeight)/winWidth;
+
+    view=document.getElementById('pixi_view');
+    view.style.width=winWidth+'px';
+    view.style.height=winHeight+'px';
+
+    renderer = new PIXI.Application({
+        width:GAME.stageWidth,
+        height:GAME.stageHeight,
+        view:view,
+        // backgroundColor:0x1099bb,
+        transparent: true, //透明背景
     });
-    GAME.renderer = renderer;
-
-
-    view = renderer.view;
-    view.style.position = "absolute";
-    view.style.top = '0px';
-    view.style.left = '0px';
-    GAME.canvas = view;
-
-    document.body.appendChild(view);
-
     stage = new PIXI.Container();
-    // stage.scale.x = 1 / dpr;
-    // stage.scale.y = 1 / dpr;
+    renderer.stage.addChild(stage);
+
+    GAME.renderer = renderer;
+    GAME.canvas = view;
     GAME.stage = stage;
 
-    //////////////////
-    GAME.imageScale = (Math.floor(GAME.stageWidth / 640 * 100) + 1) / 100;
-    GAME.positionScale = 1 * GAME.imageScale;
-    /////////////////
-
-    assetsManager = new GAME.AssetsManager();
-    assetsManager.onComplete = function() {
-        TweenMax.to(document.getElementById("loading"), 1, {
-            css: {
-                alpha: 0
-            }
-        });
-        TweenMax.delayedCall(1, function() {
+    assetsManager=new GAME.AssetsManager();
+    assetsManager.onComplete=function()
+    {
+        TweenMax.to(document.getElementById("loading"),1,{css:{alpha:0}});
+        TweenMax.delayedCall(1,function()
+        {
             $("#loading").hide();
         });
         initScene();
@@ -76,18 +83,16 @@ function init() {
     assetsManager.start();
     animate();
 
-
 }
 
 
 
 function initScene() {
     var _logo = PIXI.Sprite.fromFrame("logo2.png");
-    _logo.scale.y = _logo.scale.x = GAME.imageScale;
+    // _logo.scale.y = _logo.scale.x = GAME.imageScale;
     stage.addChild(_logo);
 
     initScene1();
-
 
     PIXI.sound.play('bg', {
         "loop": true

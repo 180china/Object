@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" id="viewport"  content="width=device-width, initial-scale=0.5, maximum-scale=0.5">
+    <meta name="viewport" id="viewport"  content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>Object</title>
@@ -22,14 +22,20 @@
         <div class="cssload-side"></div>
     </div>
 
-    <div id="landscape" style="display:none"></div>
+    <div class="pixi-player" id="pixi_player">
+        <canvas class="pixi-view" id="pixi_view"></canvas>
+    </div>
 
-<!--     <script src="libs/zepto.min.js"></script>
+    <div id="landscape"></div>
+
+    <script src="libs/jquery/jquery-1.11.2.min.js"></script>
     <script src="libs/stats.min.js"></script>
-    <script src="libs/pixi.min.js"></script>
-    <script src="libs/TweenMax.min.js"></script>
-    <script src="libs/plugins/pixi-sound.js"></script>
-    <script src="libs/plugins/pixi-particles.js"></script>
+    <script src="libs/pixi/pixi-4.5.1.min.js"></script>
+    <script src="libs/pixi/plugins/pixi-sound.js"></script>
+    <script src="libs/pixi/plugins/pixi-particles.js"></script>
+    <script src="libs/tween/TweenMax.min.js"></script>
+    <script src="libs/createjs/soundjs-0.6.1.min.js"></script>
+
 
     <script src="src/core/Game.js"></script>
     <script src="src/core/Utils.js"></script>
@@ -38,12 +44,11 @@
     <script src="src/scene/Scene.js"></script>
     <script src="src/scene/GameScene1.js"></script>
     <script src="src/scene/GameScene2.js"></script>
-    <script src="src/main.js"></script> -->
+    <script src="src/main.js"></script>
 
     
-    <script src="./build/libs.min.js"></script>
-    <script src="./build/Object.min.js"></script>
+    <!--<script src="./build/libs.min.js"></script>-->
+    <!--<script src="./build/Object.min.js"></script>-->
 
-    
 </body>
 </html>
