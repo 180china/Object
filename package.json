@@ -8,12 +8,12 @@
 		"grunt-contrib-uglify": "^3.0.0"
 	},
 	"libs": [
-		"libs/zepto.min.js",
+		"libs/jquery/jquery-1.11.2.min.js",
 		"libs/stats.min.js",
-		"libs/pixi.min.js",
-		"libs/TweenMax.min.js",
-		"libs/plugins/pixi-sound.min.js",
-		"libs/plugins/pixi-particles.min.js"
+		"libs/pixi/pixi-4.5.1.min.js",
+		"libs/pixi/plugins/pixi-sound.js",
+		"libs/pixi/plugins/pixi-particles.js",
+		"libs/tween/TweenMax.min.js"
 	],
 	"main": [
 		"src/core/Game.js",
@@ -26,3 +26,5 @@
 		"src/main.js"
 	]
 }
+
+
