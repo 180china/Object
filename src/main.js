@@ -15,6 +15,7 @@ $(function(){
     $(window).resize(resizeCanvas);
     resizeCanvas();
 
+    init();
     initStatsBar();
 });
 
@@ -23,9 +24,10 @@ function resizeCanvas()
     winWidth=$(window).get(0).innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
     winHeight=$(window).get(0).innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
 
+    //此处可以解决 进入h5在横屏不加载的问题。
     if(winHeight>winWidth && !view)
     {
-        init();
+        //init();
         $("html,body").scrollLeft(0);
     }
 }
