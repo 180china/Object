@@ -41,7 +41,7 @@ function initStatsBar()
 
 
 function init() {
-    var dpr = window.devicePixelRatio || 1;
+    //var dpr = window.devicePixelRatio || 1;
     /*
      * 缩放适配方案
      * 1、宽高比例不变
@@ -83,11 +83,9 @@ function init() {
         initScene();
     };
     assetsManager.start();
+
     animate();
-
 }
-
-
 
 function initScene() {
     var _logo = PIXI.Sprite.fromFrame("logo2.png");
@@ -96,22 +94,18 @@ function initScene() {
 
     initScene1();
 
-    // PIXI.sound.play('bg', {
-    //     "loop": true
-    // });
-
+    PIXI.sound.play('bg', {
+        "loop": true
+    });
 }
-
-
 
 function initScene1() {
     PIXI.sound.play("s1");
+
     gameScene = new GAME.GameScene1();
     stage.addChild(gameScene);
-
     gameScene.init();
     gameScene.sceneIn();
-
 
     gameScene.addEventListener("SCENE_OUT_COMPLETE", function(e) {
         stage.removeChild(gameScene);
@@ -122,12 +116,11 @@ function initScene1() {
 
 function initScene2() {
     PIXI.sound.play("s3");
+
     gameScene = new GAME.GameScene2();
     stage.addChild(gameScene);
-
     gameScene.init();
     gameScene.sceneIn();
-
 
     gameScene.addEventListener("SCENE_OUT_COMPLETE", function(e) {
         stage.removeChild(gameScene);
@@ -136,13 +129,12 @@ function initScene2() {
     });
 }
 
-
-
 function animate() {
     requestAnimationFrame(animate);
+
     GAME.renderer.render(GAME.stage);
+
     if (stats) stats.update();
+
     if (gameScene) gameScene.update();
-
-
 };
