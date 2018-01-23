@@ -13,6 +13,11 @@ Installation
 npm install
 ```
 
+开发：
+```bash
+gulp serve
+```
+
 Build
 
 ```bash

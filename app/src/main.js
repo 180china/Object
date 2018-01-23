@@ -96,9 +96,9 @@ function initScene() {
 
     initScene1();
 
-    PIXI.sound.play('bg', {
-        "loop": true
-    });
+    // PIXI.sound.play('bg', {
+    //     "loop": true
+    // });
 
 }
 
