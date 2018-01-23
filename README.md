@@ -10,24 +10,18 @@ Based on pixi.js https://github.com/pixijs/
 Installation
 
 ```bash
-npm install
+npm install --save-dev
 ```
 
-开发：
+dev：
 ```bash
 gulp serve
 ```
 
 Build
-
 ```bash
-grunt
-```
-
-uglify Libs
-
-```bash
-grunt libs
+gulp libs
+gulp minifyjs
 ```
 
 
