@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>颜色渐变效果</title>
+
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'onorientationchange' in window ? 'onorientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						if(clientWidth >= 640) {
+							docEl.style.fontSize = '100px';
+						} else {
+							docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+						}
+					};
+
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+
+		<link type="text/css" rel="stylesheet" href="css/app.css" />
+		<style>
+			/*影藏Browsersync刷新网页默认提示文字*/
+			
+			#__bs_notify__ {
+				display: none !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="pixiStage">
+		</div>
+
+		<script src="../libs/jquery/jquery-1.11.2.min.js"></script>
+		<script src="../libs/stats.min.js"></script>
+		<script src="../libs/pixi/pixi-4.5.1.min.js"></script>
+		<script src="../libs/tween/TweenMax.min.js"></script>
+
+		<script src="src/Color.js"></script>
+
+		<script>
+			var winWidth = $(window).get(0).innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			var winHeight = $(window).get(0).innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+			var app;
+			var stage;
+
+			var change = false;
+
+			app = new PIXI.autoDetectRenderer(640, 640 / (winWidth / winHeight), {
+				transparent: true,
+				antialias: true
+			});
+
+			document.getElementById('pixiStage').appendChild(app.view);
+			app.view.id = 'myCanvas';
+			stage = new PIXI.Container();
+
+			var colorArr = gradient('#ff0000', '#123456', 50);
+
+			var mc = new PIXI.Graphics();
+			stage.addChild(mc);
+			console.log(colorArr);
+			updateMc(colorArr[0]);
+
+			mc.interactive = true;
+			mc.on('touchstart', function() {
+				change = true;
+			});
+
+			function updateMc(__color) {
+				mc.clear();
+				mc.beginFill(__color, 1);
+				mc.drawRect(0, 0, 200, 100);
+				mc.endFill();
+			}
+
+			animate();
+
+			//渲染
+			function animate() {
+				requestAnimationFrame(animate);
+				pixiUpdate();
+			}
+
+			var num = 0;
+			var colorNum = 0;
+
+			function pixiUpdate() {
+				if(change) {
+					num++;
+					if(num >= 2) {
+						num = 0;
+						updateMc(colorArr[colorNum]);
+						if(colorNum < colorArr.length - 1) {
+							colorNum++;
+						} else {
+							change = false;
+						}
+					}
+				}
+
+				app.render(stage);
+			}
+		</script>
+
+	</body>
+
+</html>
