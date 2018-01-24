@@ -1,0 +1,50 @@
+body,html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+
+  background-color: #1099bb;
+}
+
+#landscape{
+  background:#000000 url(../assets/orientation.jpg) center center no-repeat;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 9;
+  display: none;
+  width:100%;
+  height:100%;
+}
+@media screen and (min-aspect-ratio: 12/7) {
+  #landscape {
+    display: block;
+  }
+}
+
+.pixi-player{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index:1;
+  margin: auto;
+  overflow: hidden;
+}
+.pixi-view{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#stats{
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:88;
+}
