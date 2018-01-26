@@ -4,6 +4,8 @@ HTML5 2DProject
 Mobile Html5 frameworks
 Based on pixi.js https://github.com/pixijs/
 
+预览html页面地址:http://htmlpreview.github.com/. 
+
 
 ## Usage
 
