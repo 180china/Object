@@ -23,6 +23,7 @@ body, html {
 @media screen and (min-aspect-ratio: 12 / 7) {
   #landscape {
     display: block; } }
+
 .pixi-player {
   position: relative;
   width: 100%;
@@ -244,6 +245,7 @@ body, html {
     transform: rotate(180deg); }
   100% {
     transform: rotate(180deg); } }
+
 @-o-keyframes cssload-rotate0 {
   0% {
     -o-transform: rotate(0deg); }
@@ -251,6 +253,7 @@ body, html {
     -o-transform: rotate(180deg); }
   100% {
     -o-transform: rotate(180deg); } }
+
 @-ms-keyframes cssload-rotate0 {
   0% {
     -ms-transform: rotate(0deg); }
@@ -258,6 +261,7 @@ body, html {
     -ms-transform: rotate(180deg); }
   100% {
     -ms-transform: rotate(180deg); } }
+
 @-webkit-keyframes cssload-rotate0 {
   0% {
     -webkit-transform: rotate(0deg); }
@@ -265,6 +269,7 @@ body, html {
     -webkit-transform: rotate(180deg); }
   100% {
     -webkit-transform: rotate(180deg); } }
+
 @-moz-keyframes cssload-rotate0 {
   0% {
     -moz-transform: rotate(0deg); }
@@ -272,6 +277,7 @@ body, html {
     -moz-transform: rotate(180deg); }
   100% {
     -moz-transform: rotate(180deg); } }
+
 @keyframes cssload-rotate90 {
   0% {
     transform: rotate(90deg);
@@ -282,6 +288,7 @@ body, html {
   100% {
     transform: rotate(270deg);
     transform: rotate(270deg); } }
+
 @-o-keyframes cssload-rotate90 {
   0% {
     -o-transform: rotate(90deg);
@@ -292,6 +299,7 @@ body, html {
   100% {
     -o-transform: rotate(270deg);
     transform: rotate(270deg); } }
+
 @-ms-keyframes cssload-rotate90 {
   0% {
     -ms-transform: rotate(90deg);
@@ -302,6 +310,7 @@ body, html {
   100% {
     -ms-transform: rotate(270deg);
     transform: rotate(270deg); } }
+
 @-webkit-keyframes cssload-rotate90 {
   0% {
     -webkit-transform: rotate(90deg);
@@ -312,6 +321,7 @@ body, html {
   100% {
     -webkit-transform: rotate(270deg);
     transform: rotate(270deg); } }
+
 @-moz-keyframes cssload-rotate90 {
   0% {
     -moz-transform: rotate(90deg);
@@ -322,6 +332,7 @@ body, html {
   100% {
     -moz-transform: rotate(270deg);
     transform: rotate(270deg); } }
+
 @keyframes cssload-rotate45 {
   0% {
     transform: rotate(45deg);
@@ -332,6 +343,7 @@ body, html {
   100% {
     transform: rotate(225deg);
     transform: rotate(225deg); } }
+
 @-o-keyframes cssload-rotate45 {
   0% {
     -o-transform: rotate(45deg);
@@ -342,6 +354,7 @@ body, html {
   100% {
     -o-transform: rotate(225deg);
     transform: rotate(225deg); } }
+
 @-ms-keyframes cssload-rotate45 {
   0% {
     -ms-transform: rotate(45deg);
@@ -352,6 +365,7 @@ body, html {
   100% {
     -ms-transform: rotate(225deg);
     transform: rotate(225deg); } }
+
 @-webkit-keyframes cssload-rotate45 {
   0% {
     -webkit-transform: rotate(45deg);
@@ -362,6 +376,7 @@ body, html {
   100% {
     -webkit-transform: rotate(225deg);
     transform: rotate(225deg); } }
+
 @-moz-keyframes cssload-rotate45 {
   0% {
     -moz-transform: rotate(45deg);
@@ -372,6 +387,7 @@ body, html {
   100% {
     -moz-transform: rotate(225deg);
     transform: rotate(225deg); } }
+
 @keyframes cssload-rotate135 {
   0% {
     transform: rotate(135deg);
@@ -382,6 +398,7 @@ body, html {
   100% {
     transform: rotate(315deg);
     transform: rotate(315deg); } }
+
 @-o-keyframes cssload-rotate135 {
   0% {
     -o-transform: rotate(135deg);
@@ -392,6 +409,7 @@ body, html {
   100% {
     -o-transform: rotate(315deg);
     transform: rotate(315deg); } }
+
 @-ms-keyframes cssload-rotate135 {
   0% {
     -ms-transform: rotate(135deg);
@@ -402,6 +420,7 @@ body, html {
   100% {
     -ms-transform: rotate(315deg);
     transform: rotate(315deg); } }
+
 @-webkit-keyframes cssload-rotate135 {
   0% {
     -webkit-transform: rotate(135deg);
@@ -412,6 +431,7 @@ body, html {
   100% {
     -webkit-transform: rotate(315deg);
     transform: rotate(315deg); } }
+
 @-moz-keyframes cssload-rotate135 {
   0% {
     -moz-transform: rotate(135deg);
@@ -422,6 +442,7 @@ body, html {
   100% {
     -moz-transform: rotate(315deg);
     transform: rotate(315deg); } }
+
 @keyframes cssload-loader {
   0% {
     transform: rotate(0deg);
@@ -429,6 +450,7 @@ body, html {
   100% {
     transform: rotate(360deg);
     transform: rotate(360deg); } }
+
 @-o-keyframes cssload-loader {
   0% {
     -o-transform: rotate(0deg);
@@ -436,6 +458,7 @@ body, html {
   100% {
     -o-transform: rotate(360deg);
     transform: rotate(360deg); } }
+
 @-ms-keyframes cssload-loader {
   0% {
     -ms-transform: rotate(0deg);
@@ -443,6 +466,7 @@ body, html {
   100% {
     -ms-transform: rotate(360deg);
     transform: rotate(360deg); } }
+
 @-webkit-keyframes cssload-loader {
   0% {
     -webkit-transform: rotate(0deg);
@@ -450,6 +474,7 @@ body, html {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
+
 @-moz-keyframes cssload-loader {
   0% {
     -moz-transform: rotate(0deg);
@@ -457,5 +482,3 @@ body, html {
   100% {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg); } }
-
-/*# sourceMappingURL=app.css.map */

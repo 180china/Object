@@ -15,7 +15,7 @@ gulp.task('sass', function() {
 });
 
 // 监视文件改动并重新载入
-gulp.task('serve',function() {
+gulp.task('dev',function() {
     browserSync.init({
         server: {
             baseDir: 'app'

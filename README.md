@@ -10,12 +10,13 @@ Based on pixi.js https://github.com/pixijs/
 Installation
 
 ```bash
-npm install --save-dev
+npm install gulp -g
+npm install 
 ```
 
 dev：
 ```bash
-gulp serve
+gulp dev
 ```
 
 Build

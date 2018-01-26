@@ -23,6 +23,7 @@ body, html {
 @media screen and (min-aspect-ratio: 12 / 7) {
   #landscape {
     display: block; } }
+
 .pixi-player {
   position: relative;
   width: 100%;
@@ -41,5 +42,3 @@ body, html {
   top: 0;
   left: 0;
   z-index: 88; }
-
-/*# sourceMappingURL=style.css.map */
