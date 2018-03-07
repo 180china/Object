@@ -22,9 +22,9 @@ gulp.task('dev',function() {
         }
     });
 
-    gulp.watch(['app/css/*.scss','app/css/*.css'],['sass']);
+    gulp.watch(['app/**/*.scss','app/**/*.css'],['sass']);
 
-    var watcher=gulp.watch(['*.html', 'src/**/*.js'], {cwd: 'app'}, reload);
+    var watcher=gulp.watch(['**/*.html', 'src/**/*.js'], {cwd: 'app'}, reload);
     watcher.on('change',function(event){
         //console.log('File'+event.path+' was '+event.type+',running tasks...');
     });
