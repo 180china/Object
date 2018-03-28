@@ -10,6 +10,7 @@ body, html {
   -ms-user-select: none;
   background-color: #1099bb; }
 
+
 #landscape {
   background: #000000 url(../assets/orientation.jpg) center center no-repeat;
   position: absolute;
@@ -20,9 +21,10 @@ body, html {
   width: 100%;
   height: 100%; }
 
-@media screen and (min-aspect-ratio: 12 / 7) {
+@media screen and (min-aspect-ratio: 10 / 7) {
   #landscape {
     display: block; } }
+
 
 .pixi-player {
   position: relative;

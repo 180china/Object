@@ -20,7 +20,7 @@ body, html {
   width: 100%;
   height: 100%; }
 
-@media screen and (min-aspect-ratio: 12 / 7) {
+@media screen and (min-aspect-ratio: 1) {
   #landscape {
     display: block; } }
 
